@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mytheme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+<body class="bg-[#9e9e9d] min-h-screen flex items-center justify-center">
+
+    <div id="loginFormContainer" class="bg-[#52524e] flex shadow-lg rounded-2xl m-4">
+
+        <div class="w-1/2">
+            <img src="/images/login.jpg" alt="" class="rounded-3xl w-[900px] p-4">
+        </div>
+
+        <div class="w-1/2 flex justify-center items-center">
+            <div class="flex flex-col justify-center">
+                <h2 class="font-bold text-3xl text-center mb-6 font-poppins text-neutral">Kyçu në sistem</h2>
+                <form id="loginForm">
+                    <div class="flex flex-col align-middle justify-center">
+                    
+                        <input
+                            id="username"
+                            type="text"
+                            placeholder="Emri i përdoruesit"
+                            class="input input-bordered input-accent w-full max-w-xs bg-neutral text-black mb-3.5" />
+                        
+                            <input
+                            id="pin"
+                            type="password"
+                            placeholder="PIN 4-Shifror"
+                            maxlength="4"
+                            pattern="\d{4}"
+                            title="PIN duhet të jetë saktësisht 4 shifra."
+                            class="input input-bordered input-accent w-full max-w-xs bg-neutral text-black mb-7" />
+                        
+                            <button class="btn btn-primary font-roboto font-semibold text-2xl bg-[#31312C] hover:bg-black" type="submit">Kyqu</button>
+                        
+                            <p id="message" 
+                        class="text-center text-sm pt-3  text-red-400">
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
