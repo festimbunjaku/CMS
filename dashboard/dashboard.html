@@ -28,62 +28,52 @@
              </aside>
 
              <main class="col-span-8 overflow-y-auto">
-                
-                    <div class="flex justify-around mt-4 p-2">
-                        <button class="btn no-animation w-96 uppercase font-bold text-xl">Kafe tË nxehta</button> 
-                        <button class="btn no-animation w-96 uppercase font-bold text-xl">kafe tË ftohta</button>
-                    </div>
-
-                    <div id="hotCoffes">
-                        <div class="grid grid-cols-12 gap-2 m-1">
-                            
-                        </div>
-                    </div>
-
-                    <div id="coldCoffes">
-                        <div class="grid grid-cols-12 gap-2 m-1">
-                            
-                        </div>
-                    </div>
-                
-             </main>
-
-             <aside class="grid-cols-4 flex flex-col col-span-3 bg-slate-200">
+                <div class="flex justify-around mt-4 p-2">
+                    <button id="hotCoffeeBtn" class="btn no-animation w-96 uppercase font-bold text-xl">Kafe tË nxehta</button>
+                    <button id="coldCoffeeBtn" class="btn no-animation w-96 uppercase font-bold text-xl">Kafe tË ftohta</button>
+                </div>
+            
+                <div id="hotCoffes" class="hidden">
+                    <div class="grid grid-cols-12 gap-2 m-1"></div>
+                </div>
+            
+                <div id="coldCoffes" class="hidden">
+                    <div class="grid grid-cols-12 gap-2 m-1"></div>
+                </div>
+            </main>
+            
+            <aside class="grid-cols-4 flex flex-col col-span-3 bg-slate-200">
                 <div class="pt-3 mt-3">
                     <h2 class="text-center text-2xl font-bold">FATURA</h2>
                 </div>
                 
                 <div class="flex-1 flex flex-col p-6">
-                    <div class="overflow-x-auto"></div>
+                    <div class="overflow-x-auto">
                         <table class="table">
-                          <thead>
-                            <tr>
-                              <th></th>
-                              <th>Emri</th>
-                              <th>Çmimi</th>
-                              <th>Fshij</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th>1</th>
-                              <td>Cy Ganderton</td>
-                              <td>9.50$</td>
-                              <td><button class="pl-2"><i class="fa-solid fa-trash"></i></button></td>
-                            </tr>
-                            
-                          </tbody>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Emri</th>
+                                    <th>Çmimi</th>
+                                    <th>Fshij</th>
+                                </tr>
+                            </thead>
+                            <tbody id="receiptBody">
+                                <!-- Items will be added here dynamically -->
+                            </tbody>
                         </table>
+                    </div>
                 </div>
                 <div class="pr-7 pb-4 text-end">
-                    <h3 class="text-lg">Total: <span class="font-bold">425$</span></h3>
+                    <h3 class="text-lg">Total: <span id="totalPrice" class="font-bold">0$</span></h3>
                 </div>
                 <div class="flex justify-around pb-6">
-                    <button class="btn no-animation w-24 h-16">RUAJ</button>
-                    <button class="btn no-animation w-24 h-16">FSHIJ</button>
-                    <button class="btn no-animation w-24 h-16">PRINTO</button>
+                    <button id="saveBtn" class="btn no-animation w-24 h-16">RUAJ</button>
+                    <button id="clearBtn" class="btn no-animation w-24 h-16">FSHIJ</button>
+                    <button id="printBtn" class="btn no-animation w-24 h-16">PRINTO</button>
                 </div>
-             </aside>
+            </aside>
+            
 
         </div>
     </div>
