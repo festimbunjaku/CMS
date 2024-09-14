@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+<body class="bg-[#9e9e9d] m-0 p-0">
+    <div class="mx-auto">
+        <div class="grid grid-cols-12 gap-4 min-h-screen bg-slate-50 ml-2 mr-2">
+            
+            <aside class="grid-cols-1 flex flex-col bg-slate-200">
+                <div class="pt-6">
+                    <h2 class="uppercase font-bold text-xl text-center">mirësevini <br> User</h2>
+                </div>
+                
+                <nav class="flex-1 flex flex-col justify-around pb-9">
+                    <button><i class="fa-solid fa-bars text-2xl"></i></button> 
+                    <button><i class="fa-solid fa-chart-line text-2xl"></i></button>
+                </nav>
+
+                <div class="flex justify-center pb-16">
+                    <button><i class="fa-solid fa-right-from-bracket text-2xl"></i></button>
+                </div>
+             </aside>
+
+             <main class="col-span-8 overflow-y-auto">
+                
+                    <div class="flex justify-around mt-4 p-2">
+                        <button class="btn no-animation w-96 uppercase font-bold text-xl">Kafe tË nxehta</button>
+                        <button class="btn no-animation w-96 uppercase font-bold text-xl">kafe tË ftohta</button>
+                    </div>
+
+                    <div id="hotCoffes">
+                        <div class="grid grid-cols-12 gap-2 m-1">
+                            
+                        </div>
+                    </div>
+
+                    <div id="coldCoffes">
+                        <div class="grid grid-cols-12 gap-2 m-1">
+                            
+                        </div>
+                    </div>
+                
+             </main>
+
+             <aside class="grid-cols-4 flex flex-col col-span-3 bg-slate-200">
+                <div class="pt-3 mt-3">
+                    <h2 class="text-center text-2xl font-bold">FATURA</h2>
+                </div>
+                
+                <div class="flex-1 flex flex-col p-6">
+                    <div class="overflow-x-auto"></div>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Emri</th>
+                              <th>Çmimi</th>
+                              <th>Fshij</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th>1</th>
+                              <td>Cy Ganderton</td>
+                              <td>9.50$</td>
+                              <td><button class="pl-2"><i class="fa-solid fa-trash"></i></button></td>
+                            </tr>
+                            
+                          </tbody>
+                        </table>
+                </div>
+                <div class="pr-9 pb-4 text-end">
+                    <h3 class="text-lg">Total: <span class="font-bold">425$</span></h3>
+                </div>
+                <div class="flex justify-around pb-6">
+                    <button class="btn no-animation">RUAJ</button>
+                    <button class="btn no-animation">FSHIJ</button>
+                    <button class="btn no-animation">PRINTO</button>
+                </div>
+             </aside>
+
+        </div>
+    </div>
+
+    <script src="/dashboard/dashboard.js"></script>
+</body>
+
+</html>
