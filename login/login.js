@@ -5,6 +5,8 @@ const users = [
     { username: "user4", pin: "0000" }
 ];
 
+localStorage.setItem("users", JSON.stringify(users));
+
 document.getElementById("loginForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -21,12 +23,14 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         return;
     }
 
+    const users = JSON.parse(localStorage.getItem("users"));
     const validUser = users.find(user =>
         user.username === enteredUsername && user.pin === enteredPin
     );
 
     if (validUser) {
         sessionStorage.setItem("loggedIn", "true");
+        localStorage.setItem("currentUser", enteredUsername); 
         window.location.href = "/dashboard/dashboard.html";
     } else {
         document.getElementById("message").textContent = "Emri i përdoruesit ose PIN-i është i pasaktë.";
