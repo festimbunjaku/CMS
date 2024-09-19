@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (currentUser) {
         const greetingElement = document.querySelector("h2");
-        greetingElement.textContent = `Mirësevini ${currentUser}`;
+        greetingElement.textContent = `Hi ${currentUser}`;
     } else {
         window.location.href = "/login/login.html";  
     }
@@ -13,6 +13,10 @@ document.getElementById("logOut").addEventListener("click", function(){
     sessionStorage.removeItem("loggedIn");
     localStorage.removeItem("currentUser");
     window.location.href = "/login/login.html";
+});
+
+document.getElementById("tdb").addEventListener("click", function(){
+    window.location.href = "/todaysBilling/tdb.html";
 });
 
 

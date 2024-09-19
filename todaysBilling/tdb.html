@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATURAT E SOTME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+<body class="m-0 p-0">
+    <div class="grid grid-cols-12 gap-4 min-h-screen bg-slate-50 ml-2 mr-2 sticky">
+        <aside class="col-span-1 flex flex-col bg-slate-200">
+            <div class="pt-6">
+                <h2 class="uppercase font-bold text-xl text-center">Hi <br> User</h2>
+            </div>
+            <nav class="flex-1 flex flex-col justify-around pb-9">
+                <button><i id="dashboard" class="fa-solid fa-bars text-2xl"></i></button> 
+                <button class="bg-gray-300 h-24 border rounded-md"><i  class="fa-solid fa-chart-line text-2xl"></i></button>
+            </nav>
+            <div id="logOut" class="flex justify-center pb-16">
+                <button><i class="fa-solid fa-right-from-bracket text-2xl"></i></button>
+            </div>
+        </aside>
+
+        <main class="col-span-10 flex flex-col h-full"> 
+            <div class="w-full flex flex-col flex-1">
+                <div class="text-center text-2xl font-bold h-16 flex items-center justify-center">
+                    <h2 class="uppercase">Faturimi i sotëm</h2>
+                </div>
+                <div class="flex-1 overflow-x-auto">
+                    <table class="table w-full text-center">
+                        <thead>
+                            <tr>
+                                <th>Fatura</th>
+                                <th>Sasia</th>
+                                <th>Çmimi</th>
+                                <th>Fshij</th>
+                            </tr>
+                        </thead>
+                        <tbody id="receiptBody">
+                            <tr>
+                                <td>156</td>
+                                <td>156</td>
+                                <td>156</td>
+                                <td>156</td>
+                            </tr>
+                            <tr>
+                                <td>156</td>
+                                <td>156</td>
+                                <td>156</td>
+                                <td>156</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex justify-between items-center h-12 p-2 mb-3">
+                    <div class="flex items-center">
+                        <h2>Transaksionet e sotme: <span>42</span></h2>
+                    </div>
+                    <div class="flex items-center">
+                        <h2>Shuma totale e sotme: <span>944879</span></h2>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="col-span-1 flex flex-col justify-between bg-slate-200">
+            <div class="pt-8">
+                <h2 class="font-bold text-base text-center"><i>Data:</i></h2>
+                <h2 id="data" class="font-bold text-2xl text-center"><span >13/09/2024</span></h2>
+            </div>
+            <div class="flex-1 flex flex-col justify-around items-center pt-16">
+                <button id="saveBtn" class="btn no-animation w-3/4 h-16">RUAJ</button>
+                <button id="clearBtn" class="btn no-animation w-3/4 h-16">FSHIJ</button>
+                <button id="printBtn" class="btn no-animation w-3/4 h-16">PRINTO</button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="tdb.js"></script>
+
+</body>
+</html>
