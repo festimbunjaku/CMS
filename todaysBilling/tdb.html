@@ -9,7 +9,7 @@
 </head>
 <body class="m-0 p-0">
     <div class="grid grid-cols-12 gap-4 min-h-screen bg-slate-50 ml-2 mr-2 sticky">
-        <aside class="col-span-1 flex flex-col bg-slate-200">
+        <aside class="col-span-1 flex flex-col bg-[#7b7c77]">
             <div class="pt-6">
                 <h2 class="uppercase font-bold text-xl text-center">Hi <br> User</h2>
             </div>
@@ -22,7 +22,7 @@
             </div>
         </aside>
 
-        <main class="col-span-10 flex flex-col h-full"> 
+        <main class="col-span-10 flex flex-col h-full bg-[#bfbeae]"> 
             <div class="w-full flex flex-col flex-1">
                 <div class="text-center text-2xl font-bold h-16 flex items-center justify-center">
                     <h2 class="uppercase">Faturimi i sotëm</h2>
@@ -64,19 +64,21 @@
             </div>
         </main>
 
-        <aside class="col-span-1 flex flex-col justify-between bg-slate-200">
+        <aside class="col-span-1 flex flex-col justify-between bg-[#7b7c77]">
             <div class="pt-8">
                 <h2 class="font-bold text-base text-center"><i>Data:</i></h2>
                 <h2 id="data" class="font-bold text-2xl text-center"><span >13/09/2024</span></h2>
             </div>
             <div class="flex-1 flex flex-col justify-around items-center pt-16">
-                <button id="saveBtn" class="btn no-animation w-3/4 h-16">RUAJ</button>
-                <button id="clearBtn" class="btn no-animation w-3/4 h-16">FSHIJ</button>
-                <button id="printBtn" class="btn no-animation w-3/4 h-16">PRINTO</button>
+                <button id="saveBtn" class="btn no-animation w-3/4 h-16 bg-[#3a3f49]">RUAJ</button>
+                <button id="clearBtn" class="btn no-animation w-3/4 h-16 bg-[#3a3f49]">FSHIJ</button>
+                <button id="printBtn" class="btn no-animation w-3/4 h-16 bg-[#3a3f49]">PRINTO</button>
             </div>
         </aside>
     </div>
 
+    
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
     <script src="tdb.js"></script>
 
 </body>

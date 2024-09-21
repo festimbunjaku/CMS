@@ -27,3 +27,6 @@ m = n.getMonth() +1;
 d = n.getDate();
 
 document.getElementById("data").innerHTML = d + "/" + m + "/" + y;
+
+
+
