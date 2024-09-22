@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/src/output.css">
 </head>
-<body class="m-0 p-0">
-    <div class="grid grid-cols-12 gap-4 min-h-screen bg-slate-50 ml-2 mr-2 sticky">
-        <aside class="col-span-1 flex flex-col bg-[#7b7c77]">
+<body class="m-0 p-0 bg-[#939394]">
+    <div class="grid grid-cols-12 gap-4 min-h-screen bg-[#939394] ml-2 mr-2 sticky">
+        <aside class="col-span-1 flex flex-col bg-[#767676]">
             <div class="pt-6">
-                <h2 class="uppercase font-bold text-xl text-center">Hi <br> User</h2>
+                <h2 class="uppercase font-bold text-2xl text-center"><br> User</h2>
             </div>
             <nav class="flex-1 flex flex-col justify-around pb-9">
                 <button><i id="dashboard" class="fa-solid fa-bars text-2xl"></i></button> 
-                <button class="bg-gray-300 h-24 border rounded-md"><i  class="fa-solid fa-chart-line text-2xl"></i></button>
+                <button class="bg-[#a3a3a4] h-24 border rounded-md"><i  class="fa-solid fa-chart-line text-2xl"></i></button>
             </nav>
             <div id="logOut" class="flex justify-center pb-16">
                 <button><i class="fa-solid fa-right-from-bracket text-2xl"></i></button>
             </div>
         </aside>
 
-        <main class="col-span-10 flex flex-col h-full bg-[#bfbeae]"> 
+        <main class="col-span-10 flex flex-col h-full bg-[#939394]"> 
             <div class="w-full flex flex-col flex-1">
                 <div class="text-center text-2xl font-bold h-16 flex items-center justify-center">
                     <h2 class="uppercase">Faturimi i sotëm</h2>
@@ -64,15 +64,15 @@
             </div>
         </main>
 
-        <aside class="col-span-1 flex flex-col justify-between bg-[#7b7c77]">
+        <aside class="col-span-1 flex flex-col justify-between bg-[#767676]">
             <div class="pt-8">
                 <h2 class="font-bold text-base text-center"><i>Data:</i></h2>
                 <h2 id="data" class="font-bold text-2xl text-center"><span >13/09/2024</span></h2>
             </div>
-            <div class="flex-1 flex flex-col justify-around items-center pt-16">
-                <button id="saveBtn" class="btn no-animation w-3/4 h-16 bg-[#3a3f49]">RUAJ</button>
-                <button id="clearBtn" class="btn no-animation w-3/4 h-16 bg-[#3a3f49]">FSHIJ</button>
-                <button id="printBtn" class="btn no-animation w-3/4 h-16 bg-[#3a3f49]">PRINTO</button>
+            <div class="flex-1 flex flex-col justify-around items-center pt-16 text-white">
+                <button id="saveBtn" class="btn no-animation w-3/4 h-16 bg-[#4e525b]">RUAJ</button>
+                <button id="clearBtn" class="btn no-animation w-3/4 h-16 bg-[#4e525b]">FSHIJ</button>
+                <button id="printBtn" class="btn no-animation w-3/4 h-16 bg-[#4e525b]">PRINTO</button>
             </div>
         </aside>
     </div>

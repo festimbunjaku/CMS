@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (currentUser) {
         const greetingElement = document.querySelector("h2");
-        greetingElement.textContent = `Hi ${currentUser}`;
+        greetingElement.textContent = `${currentUser}`;
     } else {
         window.location.href = "/login/login.html";  
     }
@@ -58,16 +58,16 @@ const displayCoffees = (coffees, containerId) => {
 
     coffees.forEach(coffee => {
         const coffeeCard = `
-             <div class="w-60 mx-auto bg-white shadow-lg rounded-lg overflow-hidden mb-6 mt-4 flex flex-col">
+             <div class="w-60 mx-auto bg-[#b3b3b4] shadow-lg rounded-lg overflow-hidden mb-6 mt-4 flex flex-col">
                 <img class="w-full h-56 object-cover" src="${coffee.image}" alt="${coffee.name}">
                 <div class="p-4 flex flex-col justify-between flex-grow">
                     <div class="flex-grow">
                         <h2 class="text-2xl font-bold text-center text-gray-800">${coffee.name}</h2>
                     </div>
                     <div class="flex justify-between items-center mt-2">
-                        <p class="text-2xl font-bold text-gray-600">$${coffee.price}</p>
-                        <button class="btn w-20 bg-slate-500 text-white font-bold text-lg hover:bg-green-700" 
-                            onclick="addToReceipt('${coffee.id}', '${coffee.name}', ${coffee.price})">Add</button>
+                        <p class="text-2xl font-bold text-gray-600">${coffee.price}€</p>
+                        <button class="btn w-20 bg-[#4e525b] text-white font-bold text-lg hover:bg-[#a3a3a4]" 
+                            onclick="addToReceipt('${coffee.id}', '${coffee.name}', ${coffee.price})">Shto</button>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@ const updateReceiptTable = () => {
             <tr>
                 <th>${index + 1}</th>
                 <td>${item.name}</td>
-                <td>$${item.price.toFixed(2)}</td>
+                <td>${item.price.toFixed(2)}€</td>
                 <td><button class="pl-2" onclick="removeFromReceipt(${index})"><i class="fa-solid fa-trash"></i></button></td>
             </tr>
         `;
@@ -104,7 +104,7 @@ const updateReceiptTable = () => {
 };
 
 const updateTotalPrice = () => {
-    document.getElementById('totalPrice').innerText = `${totalPrice.toFixed(2)}$`;
+    document.getElementById('totalPrice').innerText = `${totalPrice.toFixed(2)}€`;
 };
 
 const removeFromReceipt = (index) => {

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (currentUser) {
         const greetingElement = document.querySelector("h2");
-        greetingElement.textContent = `Hi ${currentUser}`;
+        greetingElement.textContent = `${currentUser}`;
     } else {
         window.location.href = "/login/login.html";  
     }
