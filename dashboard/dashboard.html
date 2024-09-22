@@ -5,48 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="/src/output.css">
 </head>
-<body class=" m-0 p-0 bg-[#939394]">
-    <div class="mx-auto ">
+<body class="m-0 p-0 bg-[#939394]">
+    <div class="mx-auto">
         <div class="grid grid-cols-12 gap-4 min-h-screen bg-[#939394] ml-2 mr-2">
-            
             <aside class="grid-cols-1 flex flex-col bg-[#767676]">
                 <div class="pt-6">
-                    <h2 class="uppercase font-bold text-2xl text-center"> <br> User</h2>
+                    <h2 class="uppercase font-bold text-2xl text-center"><br>User</h2>
                 </div>
-                
                 <nav class="flex-1 flex flex-col justify-around pb-9">
                     <button class="bg-[#a3a3a4] h-24 border rounded-md"><i id="dashboard" class="fa-solid fa-bars text-2xl"></i></button> 
                     <button><i id="tdb" class="fa-solid fa-chart-line text-2xl"></i></button>
                 </nav>
-
                 <div id="logOut" class="flex justify-center pb-16 mt-4">
                     <button><i class="fa-solid fa-right-from-bracket text-2xl"></i></button>
                 </div>
-             </aside>
-
-             <main class="col-span-8 overflow-y-auto bg-[#939394]">
+            </aside>
+            <main class="col-span-8 overflow-y-auto bg-[#939394]">
                 <div class="flex justify-around mt-4 p-2">
                     <button id="hotCoffeeBtn" class="btn no-animation w-96 uppercase font-bold text-xl bg-[#767676]">Kafe tË nxehta</button>
                     <button id="coldCoffeeBtn" class="btn no-animation w-96 uppercase font-bold text-xl bg-[#767676]">Kafe tË ftohta</button>
                 </div>
-            
                 <div id="hotCoffes" class="hidden">
                     <div class="grid grid-cols-12 gap-2 m-1"></div>
                 </div>
-            
                 <div id="coldCoffes" class="hidden">
                     <div class="grid grid-cols-12 gap-2 m-1"></div>
                 </div>
             </main>
-            
             <aside class="grid-cols-4 flex flex-col col-span-3 bg-[#767676]">
                 <div class="pt-3 mt-3">
                     <h2 class="text-center text-2xl font-bold">FATURA</h2>
                 </div>
-                
                 <div class="flex-1 flex flex-col p-6">
                     <div class="overflow-x-auto">
                         <table class="table">
@@ -58,9 +49,7 @@
                                     <th>Fshij</th>
                                 </tr>
                             </thead>
-                            <tbody id="receiptBody">
-                                <!-- Items will be added here dynamically -->
-                            </tbody>
+                            <tbody id="receiptBody"></tbody>
                         </table>
                     </div>
                 </div>
@@ -73,11 +62,8 @@
                     <button id="printBtn" class="btn no-animation w-24 font-bold text-lg h-16 bg-[#4e525b]">PRINTO</button>
                 </div>
             </aside>
-            
-
         </div>
     </div>
-
     <script src="../node_modules/axios/dist/axios.min.js"></script>
     <script src="/dashboard/dashboard.js"></script>
 </body>

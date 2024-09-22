@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     const currentUser = localStorage.getItem("currentUser");
-
     if (currentUser) {
         const greetingElement = document.querySelector("h2");
         greetingElement.textContent = `${currentUser}`;
@@ -21,14 +20,14 @@ document.getElementById("tdb").addEventListener("click", function() {
 
 document.getElementById('hotCoffeeBtn').addEventListener('click', () => {
     fetchHotCoffees();
-    document.getElementById('coldCoffes').style.display = 'none'; // Hide cold coffees
-    document.getElementById('hotCoffes').style.display = 'grid'; // Show hot coffees
+    document.getElementById('coldCoffes').style.display = 'none';
+    document.getElementById('hotCoffes').style.display = 'grid';
 });
 
 document.getElementById('coldCoffeeBtn').addEventListener('click', () => {
     fetchColdCoffees();
-    document.getElementById('hotCoffes').style.display = 'none'; // Hide hot coffees
-    document.getElementById('coldCoffes').style.display = 'grid'; // Show cold coffees
+    document.getElementById('hotCoffes').style.display = 'none';
+    document.getElementById('coldCoffes').style.display = 'grid';
 });
 
 const fetchHotCoffees = async () => {
@@ -51,9 +50,7 @@ const fetchColdCoffees = async () => {
 
 const displayCoffees = (coffees, containerId) => {
     const container = document.getElementById(containerId);
-    container.innerHTML = ''; // Clear previous items
-
-    // Ensure the grid layout is set
+    container.innerHTML = '';
     container.classList.add('grid', 'grid-cols-1', 'sm:grid-cols-2', 'lg:grid-cols-4', 'gap-4');
 
     coffees.forEach(coffee => {
@@ -88,7 +85,7 @@ const addToReceipt = (id, name, price) => {
 
 const updateReceiptTable = () => {
     const receiptBody = document.getElementById('receiptBody');
-    receiptBody.innerHTML = ''; // Clear previous items
+    receiptBody.innerHTML = '';
 
     receipt.forEach((item, index) => {
         const receiptRow = `
@@ -115,7 +112,7 @@ const removeFromReceipt = (index) => {
 };
 
 document.getElementById('saveBtn').addEventListener('click', async () => {
-    if (receipt.length === 0) return;
+    if (receipt.length === 0) return alert("Fatura është e zbrazët!");
 
     const data = {
         sasia: receipt.length,
@@ -135,19 +132,21 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
 });
 
 document.getElementById('clearBtn').addEventListener('click', () => {
-    receipt = [];
-    totalPrice = 0;
-    updateReceiptTable();
-    updateTotalPrice();
+    if (confirm("Dëshiron të fshish të dhënat?")) {
+        receipt = [];
+        totalPrice = 0;
+        updateReceiptTable();
+        updateTotalPrice();
+    }
 });
 
 document.getElementById('printBtn').addEventListener('click', () => {
-    const receiptElement = document.querySelector('aside.col-span-3'); // Target the right aside directly
+    const receiptElement = document.querySelector('aside.col-span-3');
     const newWin = window.open('', 'Print-Window');
     newWin.document.open();
     newWin.document.write('<html><head><title>Print Receipt</title>');
-    newWin.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">'); // Include any necessary styles
-    newWin.document.write('<style> body { font-family: Arial, sans-serif; } </style>'); // Add your styles as needed
+    newWin.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">');
+    newWin.document.write('<style> body { font-family: Arial, sans-serif; } </style>');
     newWin.document.write('</head><body onload="window.print()">');
     newWin.document.write(receiptElement.innerHTML);
     newWin.document.write('</body></html>');
