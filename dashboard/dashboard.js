@@ -141,14 +141,81 @@ document.getElementById('clearBtn').addEventListener('click', () => {
 });
 
 document.getElementById('printBtn').addEventListener('click', () => {
-    const receiptElement = document.querySelector('aside.col-span-3');
-    const newWin = window.open('', 'Print-Window');
-    newWin.document.open();
-    newWin.document.write('<html><head><title>Print Receipt</title>');
-    newWin.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">');
-    newWin.document.write('<style> body { font-family: Arial, sans-serif; } </style>');
-    newWin.document.write('</head><body onload="window.print()">');
-    newWin.document.write(receiptElement.innerHTML);
-    newWin.document.write('</body></html>');
-    newWin.document.close();
-});
+    const receiptHeader = document.querySelector('aside.col-span-3 h2').outerHTML;
+    const receiptTable = document.querySelector('aside.col-span-3 .flex-1 table').cloneNode(true);
+
+    // Remove "Fshij" header and its column
+    const headerRow = receiptTable.querySelector('thead tr');
+    const fshijHeaderIndex = Array.from(headerRow.children).findIndex(th => th.textContent.trim() === 'Fshij');
+
+    if (fshijHeaderIndex !== -1) {
+        headerRow.deleteCell(fshijHeaderIndex);
+        const bodyRows = receiptTable.querySelectorAll('tbody tr');
+        bodyRows.forEach(row => {
+            row.deleteCell(fshijHeaderIndex);
+        });
+    }
+
+    document.getElementById('printBtn').addEventListener('click', () => {
+        const receiptHeader = document.querySelector('aside.col-span-3 h2').outerHTML;
+        const receiptTable = document.querySelector('aside.col-span-3 .flex-1 table').cloneNode(true);
+    
+        const headerRow = receiptTable.querySelector('thead tr');
+        const fshijHeaderIndex = Array.from(headerRow.children).findIndex(th => th.textContent.trim() === 'Fshij');
+    
+        if (fshijHeaderIndex !== -1) {
+            headerRow.deleteCell(fshijHeaderIndex);
+            const bodyRows = receiptTable.querySelectorAll('tbody tr');
+            bodyRows.forEach(row => {
+                row.deleteCell(fshijHeaderIndex);
+            });
+        }
+    
+        const totalPrice = document.querySelector('aside.col-span-3 #totalPrice').outerHTML;
+    
+        const newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+        newWin.document.write('<html><head><title>Print Receipt</title>');
+        newWin.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">');
+        newWin.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">');
+        newWin.document.write('</head><body onload="window.print()" class="flex justify-center items-center h-screen">');
+    
+        newWin.document.write(`
+            <style>
+                @media print {
+                    body {
+                        margin: 0;
+                        padding: 0;
+                        font-family: Arial, sans-serif;
+                    }
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                    }
+                    th, td {
+                        border: 1px solid gray;
+                        padding: 10px;
+                        text-align: left;
+                    }
+                    th {
+                        background-color: #f0f0f0;
+                    }
+                    /* Add gap between columns */
+                    th:not(:last-child), td:not(:last-child) {
+                        padding-right: 20px; /* Adjust gap here */
+                    }
+                }
+            </style>
+            <div class="p-5">
+                ${receiptHeader}
+                <div class="overflow-x-auto">
+                    ${receiptTable.outerHTML}
+                </div>
+                <h3 class="text-lg text-center mt-4">Totali: <span class="font-bold">${totalPrice}</span></h3>
+            </div>
+        `);
+    
+        newWin.document.write('</body></html>');
+        newWin.document.close();
+    });
+})    

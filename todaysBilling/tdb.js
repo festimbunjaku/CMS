@@ -113,22 +113,59 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    printBtn.addEventListener('click', () => {
-        const printContent = document.querySelector('main').outerHTML;
-        const newWindow = window.open('', '_blank');
-        newWindow.document.write(`
-            <html>
-                <head>
-                    <title>Print</title>
-                    <style>
-                        
-                    </style>
-                </head>
-                <body onload="window.print();">${printContent}</body>
-            </html>
+    document.getElementById('printBtn').addEventListener('click', () => {
+        const mainSection = document.querySelector('main');
+        const clonedSection = mainSection.cloneNode(true);
+    
+        const headerRow = clonedSection.querySelector('thead tr');
+        const fshijHeaderIndex = Array.from(headerRow.children).findIndex(th => th.textContent.trim() === 'Fshij');
+    
+        if (fshijHeaderIndex !== -1) {
+            headerRow.deleteCell(fshijHeaderIndex);
+            const bodyRows = clonedSection.querySelectorAll('tbody tr');
+            bodyRows.forEach(row => {
+                row.deleteCell(fshijHeaderIndex);
+            });
+        }
+    
+        const newWin = window.open('', 'Print-Window');
+        newWin.document.open();
+        newWin.document.write('<html><head><title>Print Receipt</title>');
+        newWin.document.write('<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">');
+        newWin.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">');
+        newWin.document.write('</head><body onload="window.print()" class="flex justify-center items-center h-screen">');
+    
+        newWin.document.write(`
+            <style>
+                @media print {
+                    body {
+                        margin: 0;
+                        padding: 0;
+                        font-family: Arial, sans-serif;
+                    }
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                    }
+                    th, td {
+                        border: 1px solid gray;
+                        padding: 10px;
+                        text-align: left;
+                    }
+                    th {
+                        background-color: #f0f0f0;
+                    }
+                    /* Add gap between columns */
+                    th:not(:last-child), td:not(:last-child) {
+                        padding-right: 20px; /* Adjust gap here */
+                    }
+                }
+            </style>
         `);
-        newWindow.document.close();
+    
+        newWin.document.write(clonedSection.innerHTML);
+        newWin.document.write('</body></html>');
+        newWin.document.close();
     });
-
-    fetchData();
-});
+fetchData();
+})    
